@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>용돈 가계부</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>용돈 가계부</h1>
+      <div class="month-nav">
+        <button type="button" class="icon-btn" id="prevMonth" aria-label="이전 달">‹</button>
+        <span id="currentMonth">2026년 10월</span>
+        <button type="button" class="icon-btn" id="nextMonth" aria-label="다음 달">›</button>
+      </div>
+    </header>
+
+    <!-- 상단: 월별 합계 -->
+    <section class="summary" aria-label="월별 합계">
+      <div class="summary-card income">
+        <span class="label">수입</span>
+        <strong class="amount" id="totalIncome">0원</strong>
+      </div>
+      <div class="summary-card expense">
+        <span class="label">지출</span>
+        <strong class="amount" id="totalExpense">0원</strong>
+      </div>
+      <div class="summary-card balance">
+        <span class="label">잔액</span>
+        <strong class="amount" id="totalBalance">0원</strong>
+      </div>
+    </section>
+
+    <!-- 중간: 날짜별 내역 -->
+    <section class="history" aria-label="날짜별 내역">
+      <h2 class="section-title">내역</h2>
+      <div id="historyList"></div>
+    </section>
+
+    <!-- 하단: 입력 폼 -->
+    <section class="entry" aria-label="내역 입력">
+      <h2 class="section-title">기록하기</h2>
+      <form id="entryForm" class="entry-form">
+        <div class="type-toggle" role="radiogroup" aria-label="구분">
+          <label><input type="radio" name="type" value="income"><span>수입</span></label>
+          <label><input type="radio" name="type" value="expense" checked><span>지출</span></label>
+        </div>
+        <div class="field-row">
+          <label class="field">
+            <span>날짜</span>
+            <input type="date" name="date" required>
+          </label>
+          <label class="field">
+            <span>금액</span>
+            <input type="number" name="amount" inputmode="numeric" min="0" step="100" placeholder="0" required>
+          </label>
+        </div>
+        <label class="field">
+          <span>분류</span>
+          <select name="category">
+            <option>용돈</option>
+            <option>식비</option>
+            <option>간식</option>
+            <option>교통</option>
+            <option>문구</option>
+            <option>취미</option>
+            <option>기타</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>메모</span>
+          <input type="text" name="memo" placeholder="예: 친구랑 떡볶이">
+        </label>
+        <button type="submit" class="submit-btn">추가하기</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
