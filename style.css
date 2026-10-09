@@ -162,6 +162,26 @@ body {
   white-space: nowrap;
 }
 
+.delete-btn {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin-right: -6px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.delete-btn:hover,
+.delete-btn:focus-visible {
+  background: #fdecec;
+  color: var(--expense);
+}
+
 .entry-amount.income { color: var(--income); }
 .entry-amount.expense { color: var(--expense); }
 
