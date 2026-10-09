@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>용돈 가계부</title>
+  <meta name="description" content="수입과 지출을 기록하는 용돈 가계부">
+  <meta name="theme-color" content="#2f9e44">
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+
+  <!-- 아이폰 홈 화면용 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="용돈 가계부">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -79,5 +93,14 @@
   </div>
 
   <script src="./app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js").catch(err => {
+          console.warn("서비스 워커 등록 실패:", err);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
